@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-night-700/70;
+  }
+  html {
+    color-scheme: light;
+  }
+  body {
+    @apply bg-night-900 text-ink-100 font-body antialiased;
+    background-image:
+      radial-gradient(circle at 15% -10%, rgba(11, 125, 112, 0.06), transparent 40%),
+      radial-gradient(circle at 85% 0%, rgba(79, 70, 229, 0.06), transparent 35%);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4, h5 {
+    @apply font-display tracking-tight;
+  }
+  ::selection {
+    @apply bg-aurora/20 text-white;
+  }
+}
+
+@layer utilities {
+  /* Elevated white card with a soft, layered shadow — the light-mode
+     equivalent of the original glassmorphism treatment. True translucency
+     doesn't read well against a flat light background, so cards "lift" via
+     shadow + a hairline border instead of blur. */
+  .glass {
+    @apply bg-night-950 border border-night-700 shadow-glass;
+  }
+  .glass-strong {
+    @apply bg-night-950/90 backdrop-blur-xl border border-night-700 shadow-glass;
+  }
+  .text-gradient-aurora {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-aurora via-aurora-deep to-signal;
+  }
+  .card-hover {
+    @apply transition-all duration-300 hover:border-aurora/40 hover:shadow-glow hover:-translate-y-0.5;
+  }
+  .skeleton {
+    @apply relative overflow-hidden bg-night-800 rounded-lg;
+  }
+  .skeleton::after {
+    content: "";
+    @apply absolute inset-0;
+    background: linear-gradient(90deg, transparent, rgba(16, 19, 28, 0.06), transparent);
+    background-size: 400px 100%;
+    animation: shimmer 1.8s linear infinite;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Custom scrollbar for the app shell */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(16, 19, 28, 0.14);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(11, 125, 112, 0.35);
+}
+
+/* ---------------------------------------------------------------------- */
+/* "Eclipse" theme variant — violet-forward accent, still light background */
+/* ---------------------------------------------------------------------- */
+.theme-eclipse body {
+  background-image:
+    radial-gradient(circle at 15% -10%, rgba(79, 70, 229, 0.08), transparent 40%),
+    radial-gradient(circle at 85% 0%, rgba(11, 125, 112, 0.05), transparent 35%);
+}
+.theme-eclipse .text-gradient-aurora {
+  @apply bg-gradient-to-r from-signal via-signal-deep to-aurora;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Leaflet light theme overrides                                          */
+/* ---------------------------------------------------------------------- */
+.leaflet-container {
+  background: #eef0f6 !important;
+  font-family: "Inter", sans-serif;
+}
+.leaflet-tile {
+  filter: saturate(0.85) brightness(1.02) contrast(0.96);
+}
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: #ffffff;
+  color: #10131c;
+  border: 1px solid #dde1ec;
+}
+.leaflet-control-zoom a {
+  background: #ffffff !important;
+  color: #10131c !important;
+  border: 1px solid #dde1ec !important;
+}
+.leaflet-control-attribution {
+  background: rgba(255, 255, 255, 0.8) !important;
+  color: #6e7488 !important;
+}
+.leaflet-control-attribution a {
+  color: #454a5e !important;
+}
