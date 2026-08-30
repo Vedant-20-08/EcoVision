@@ -1,4 +1,4 @@
-# The Night's Watch
+# EcoVision
 
 AI-powered Air Quality Intelligence & Environmental Feasibility Platform for India.
 
