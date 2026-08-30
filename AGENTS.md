@@ -1,4 +1,4 @@
-# AGENTS.md — The Night's Watch
+# AGENTS.md — EcoVision
 
 This file briefs any agent (Antigravity's agent team, or a human) picking up this codebase.
 Read this fully before writing code. It tells you what exists, how it's built, and the
